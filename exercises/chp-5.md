@@ -195,6 +195,7 @@ GROUP BY ( ㄷ )
 5. 남학생 중 나이가 최소인 학생의 학반 이름. 나이를 검색하라.
 6. 나이가 같은 학생이 50명 이상인 연령에 대해서만 해당 나이와 학생수를 검색하라.
 
+
 1. SELECT 이름 FROM WHERE 나이 IS NULL;
 2. SELECT DISTINCT 나이 FROM 학생 WHERE 이름 LIKE '김%' AND 학년 = 3;
 3. SELECT 성별, AVG(나이) FROM 학생 GROUP BY 성별;
