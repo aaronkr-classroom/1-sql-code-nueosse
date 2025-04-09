@@ -189,20 +189,22 @@ GROUP BY ( ㄷ )
 `학생(학번, 이름 나이, 성별 학년)`
 
 1. 나이를 알 수 없는 학생의 이름을 검색하라.
+SELECT 이름 FROM WHERE 나이 IS NULL;
+
 2. 성이 김 씨이고 학년이 3학년인 학생들의 나이를 검색하라(동일한 나이는 중복제거).
+SELECT DISTINCT 나이 FROM 학생 WHERE 이름 LIKE '김%' AND 학년 = 3;
+
 3. 학생 중 남학생 (M)과 여학생 (F)별 평균 연령을 검색하라.
+SELECT 성별, AVG(나이) FROM 학생 GROUP BY 성별;
+
 4. 학생들의 학번, 나이, 학년을 나이의 내림차순으로, 나이가 같을 경우엔 학년의 오름차 순으로검색하라.
+SELECT 학번, 나이, 학년 FROM 학생 ORDER BY 나이 DESC, 학년 ASC;
+
 5. 남학생 중 나이가 최소인 학생의 학반 이름. 나이를 검색하라.
+SELECT 학번, 이름, 나이 FROM 학생 WHERE 성별 = 'M' AND 나이 = (SELECT MIN(나이) FROM 학생 WHERE 성별 = 'M');
+
 6. 나이가 같은 학생이 50명 이상인 연령에 대해서만 해당 나이와 학생수를 검색하라.
-
-
-1. SELECT 이름 FROM WHERE 나이 IS NULL;
-2. SELECT DISTINCT 나이 FROM 학생 WHERE 이름 LIKE '김%' AND 학년 = 3;
-3. SELECT 성별, AVG(나이) FROM 학생 GROUP BY 성별;
-4. SELECT 학번, 나이, 학년 FROM 학생 ORDER BY 나이 DESC, 학년 ASC;
-5. SELECT 학번, 이름, 나이 FROM 학생 WHERE 성별 = 'M' AND 나이 = (SELECT MIN(나이) FROM 학생 WHERE 성별 = 'M');
-6. SELECT 나이, COUNT(*) FROM 학생 GROUP BY 나이 HAVING COUNT(*) >= 50;
-
+SELECT 나이, COUNT(*) FROM 학생 GROUP BY 나이 HAVING COUNT(*) >= 50;
 
 **17 다음 데이터베이스를 대상으로 질의 요구 사항을 SOL로 표현하시오.**
 
